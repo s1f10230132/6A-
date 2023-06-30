@@ -4,11 +4,11 @@
 }
 .sideBar{
     float: left;
-    width:30%;
+    width:20%;
     margin: 10px 0 10px 0;
 }
 .content{
     float: left;
-    width: 70%;
+    width: 80%;
     margin: 10px 0 10px 0;
 }
