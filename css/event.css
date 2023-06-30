@@ -10,6 +10,7 @@
     width:20%;
     margin: 10px 0 10px 0;
     padding-top: 50px;
+    padding-bottom: 70%;
     background-color: rgba(0, 0, 0, 0.2);
 }
 .content{
@@ -19,6 +20,22 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
-h1{
+.design_h1{
+    margin: 5px;
+    margin-left: 20%;
+    background-color: rgb(220, 160, 115);
     text-align: center;
+}
+.design_h3{
+    margin: 5px;
+    background-color: #ccccee;
+    border-bottom: solid 3px #7777ee;
+    height: 20px;
+    padding: 5px 5px 5px 10px;
+}
+th{
+    background-color: #cccccc;
+}
+td{
+    background-color: aliceblue;
 }
