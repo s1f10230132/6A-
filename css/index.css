@@ -1,3 +1,24 @@
-.red{
-    color: #ff0000;
+#container{
+    display: flex;
+    flex-direction: row;
+}
+.sideBar{
+    position: fixed;
+    left: 0;
+    top: 0;
+    float: left;
+    width:30%;
+    margin: 10px 0 10px 0;
+    padding-top: 50px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.content{
+    float: left;
+    width: 70%;
+    margin-left: 20%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+h1{
+    text-align: center;
 }
