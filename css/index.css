@@ -27,6 +27,25 @@
 a{
     color: rgb(224, 51, 167);
 }
+.container .content p {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .container .content p {
+    width: 50%;
+    box-sizing: border-box;
+    border: 1px solid black;
+    padding: 10px;
+  }
+  
+  .container .content p:nth-child(2n+1) {
+    margin-right: auto;
+  }
+  
+  .container .content p:last-child {
+    margin-right: 0;
+  }
 @font-face {
     font-family: 'shirafune';
     src: url('./font/hkkaing.ttf') format('truetype');
