@@ -5,18 +5,109 @@
   <meta charset="UTF-8">
   <title>赤羽祭り・イベント情報サイト</title>
   <link rel="stylesheet" href="../css/index.css">
+  <style>
+    #header {
+      text-align: center;
+      font-size: 24px;
+      margin-top: 1rem;
+    }
+  </style>
 </head>
 
 <body>
   <div class="container">
-    <h1>東京の祭り・イベント</h1>
+    <h1 id="design_h1">とうきょうのまつり・イベント</h1>
     <div class="sideBar">
       <p><a href="../pages/home_Index.html#event_top">イベント一覧</a></p>
       <p><a href="../pages/home_Index.html#calendar">カレンダー</a></p>
     </div>
     <div class="content">
       <h3 id="event_top">イベント一覧</h3>
-      <h3 id="calendar">イベントカレンダー</h3>
+
+      <h3 id="calendar_top">イベントカレンダー</h3>
+      <div class="wrapper">
+        <!-- xxxx年xx月を表示 -->
+        <h1 id="header"></h1>
+
+        <!-- ボタンクリックで月移動 -->
+        <div id="next-prev-button">
+          <button id="prev" onclick="prev()">&lt;
+          </button> <button id="next" onclick="next()">&gt;
+          </button>
+        </div>
+
+        <!-- カレンダー -->
+        <div id="calendar">
+          <script>
+            const week = ["日", "月", "火", "水", "木", "金", "土"];
+            const today = new Date();
+            var showDate = new Date(today.getFullYear(), today.getMonth(), 1);
+
+            function prev() {
+              showDate.setMonth(showDate.getMonth() - 1);
+              var calendar = document.querySelector('#calendar');
+              var header = document.querySelector('#header');
+              showProcess(showDate, calendar, header);
+            }
+
+            function next() {
+              showDate.setMonth(showDate.getMonth() + 1);
+              var calendar = document.querySelector('#calendar');
+              var header = document.querySelector('#header');
+              showProcess(showDate, calendar, header);
+            }
+
+            function showProcess(date, calendar, header) {
+              var year = date.getFullYear();
+              var month = date.getMonth();
+              header.innerHTML = year + "年 " + (month + 1) + "月";
+
+              var calendarHTML = createProcess(year, month);
+              calendar.innerHTML = calendarHTML;
+            }
+
+            function createProcess(year, month) {
+              var calendar = "<table><tr class='dayOfWeek'>";
+              for (var i = 0; i < week.length; i++) {
+                calendar += "<th>" + week[i] + "</th>";
+              }
+              calendar += "</tr>";
+
+              var count = 0;
+              var startDayOfWeek = new Date(year, month, 1).getDay();
+              var endDate = new Date(year, month + 1, 0).getDate();
+              var lastMonthEndDate = new Date(year, month, 0).getDate();
+              var row = Math.ceil((startDayOfWeek + endDate) / week.length);
+
+              for (var i = 0; i < row; i++) {
+                calendar += "<tr>";
+                for (var j = 0; j < week.length; j++) {
+                  if (i == 0 && j < startDayOfWeek) {
+                    calendar += "<td class='disabled'>" + (lastMonthEndDate - startDayOfWeek + j + 1) + "</td>";
+                  } else if (count >= endDate) {
+                    count++;
+                    calendar += "<td class='disabled'>" + (count - endDate) + "</td>";
+                  } else {
+                    count++;
+                    if (year == today.getFullYear() && month == today.getMonth() && count == today.getDate()) {
+                      calendar += "<td class='today'>" + count + "</td>";
+                    } else {
+                      calendar += "<td>" + count + "</td>";
+                    }
+                  }
+                }
+                calendar += "</tr>";
+              }
+              return calendar;
+            }
+
+            // 初期表示
+            var calendar = document.querySelector('#calendar');
+            var header = document.querySelector('#header');
+            showProcess(today, calendar, header);
+          </script>
+        </div>
+      </div>
     </div>
   </div>
 </body>

@@ -12,7 +12,6 @@
     padding-top: 50px;
     padding-bottom: 70%;
     background-color: #ccccee;
-
 }
 .content{
     float: left;
@@ -22,6 +21,7 @@
     margin-bottom: 10px;
 }
 .design_h1{
+    font-family: 'shirafune';
     margin: 5px;
     margin-left: 20%;
     background-color: rgb(220, 160, 115);
@@ -41,5 +41,9 @@ td{
     background-color: aliceblue;
 }
 a{
-    color: green;
+    color: rgb(224, 51, 167);
+}
+@font-face {
+    font-family: 'shirafune';
+    src: url('./font/hkkaing.ttf') format('truetype');
 }
