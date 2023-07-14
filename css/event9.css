@@ -1,0 +1,28 @@
+img {
+    width: 750px;
+    }
+h1{
+    color:brown;
+    }  
+span{
+    text-align: justify;
+    width:300px;
+
+}
+th,td {
+    border: solid 1px;          /* 枠線指定 */
+}
+ 
+table {
+    border-collapse:  collapse; /* セルの線を重ねる */
+}
+ 
+th {
+    width:  300px;              /* 幅指定 */
+    height: 80px;               /* 高さ指定 */
+    background-color: darkgrey;
+}
+td{
+    width: 600px;
+    height: 80px;
+}
